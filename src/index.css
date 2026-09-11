@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 255 102 0;
+    --primary-foreground: 255 255 255;
+    --background: 9 9 11;
+    --foreground: 244 244 245;
+  }
+
+  * {
+    border-color: #27272A;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #09090B;
+    color: #F4F4F5;
+    overflow-x: hidden;
+    margin: 0;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-align: left;
+  }
+}
+
+/* Custom modern black & orange scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 102, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6600;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.6);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(18, 18, 21, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 102, 0, 0.12);
+}
+
+.glass-brand {
+  background: rgba(255, 102, 0, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 102, 0, 0.25);
+}
+
+.glass-red {
+  background: rgba(255, 102, 0, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 102, 0, 0.2);
+}
+
+.glass-black {
+  background: rgba(9, 9, 11, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 102, 0, 0.15);
+}
+
+/* Hide scrollbar for clean horizontal scrolls */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   UNIVERSAL BLACK & ELECTRIC ORANGE THEME ENFORCEMENT
+   Applied across all pages: Home, Planner, Itinerary, Hotels, Transport,
+   Explore, Trips, Bookings, Payment, Profile, Help, Login, Sign Up, etc.
+   ========================================================================== */
+
+/* Universal Page Backgrounds (min-h-screen wrappers) */
+[class*="bg-gray-50/"],
+[class*="bg-slate-50/"],
+.bg-zinc-950,
+.bg-gray-950,
+.bg-slate-950 {
+  background-color: #09090b !important;
+}
+
+/* Universal Card & Surface Backgrounds */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100,
+.bg-slate-50,
+.bg-slate-100,
+.bg-zinc-50,
+.bg-zinc-100,
+[class*="bg-white/"],
+[class*="bg-gray-100/"] {
+  background-color: #121215 !important;
+  color: #f4f4f5 !important;
+}
+
+/* Secondary dark surfaces (pills, inner cards, subtle blocks) */
+.bg-gray-200,
+.bg-slate-200,
+.bg-zinc-200,
+.bg-zinc-850 {
+  background-color: #1c1c22 !important;
+  color: #f4f4f5 !important;
+}
+
+/* Universal Accent Box Overrides (converts blues, cyans, emeralds, purples to black & orange) */
+.bg-blue-50, .bg-blue-100, .bg-indigo-50, .bg-indigo-100,
+.bg-purple-50, .bg-purple-100, .bg-emerald-50, .bg-emerald-100,
+.bg-green-50, .bg-green-100, .bg-teal-50, .bg-teal-100,
+.bg-cyan-50, .bg-cyan-100, .bg-sky-50, .bg-sky-100,
+.bg-amber-50, .bg-amber-100, .bg-rose-50, .bg-rose-100,
+.bg-red-50, .bg-red-100 {
+  background-color: rgba(255, 102, 0, 0.12) !important;
+  color: #ff8533 !important;
+  border-color: rgba(255, 102, 0, 0.3) !important;
+}
+
+/* Colored Action Buttons mapped to Electric Solar Flare Orange */
+.bg-blue-600, .bg-blue-500, .bg-indigo-600, .bg-indigo-500,
+.bg-purple-600, .bg-purple-500, .bg-emerald-600, .bg-emerald-500,
+.bg-teal-600, .bg-teal-500, .bg-cyan-600, .bg-cyan-500 {
+  background-color: #ff6600 !important;
+  color: #08080a !important;
+  font-weight: 700 !important;
+}
+
+/* Accent text mapped to Electric Orange */
+.text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800,
+.text-indigo-500, .text-indigo-600, .text-indigo-700,
+.text-purple-500, .text-purple-600, .text-purple-700,
+.text-emerald-500, .text-emerald-600, .text-emerald-700,
+.text-cyan-500, .text-cyan-600, .text-cyan-700,
+.text-teal-500, .text-teal-600, .text-teal-700,
+.text-amber-500, .text-amber-600, .text-amber-700 {
+  color: #ff6600 !important;
+}
+
+/* Gradients that fade from or to white/gray */
+.from-white,
+.from-gray-50,
+.from-gray-100,
+.from-slate-50 {
+  --tw-gradient-from: #09090b var(--tw-gradient-from-position) !important;
+}
+
+.to-white,
+.to-gray-50,
+.to-gray-100,
+.to-slate-50 {
+  --tw-gradient-to: #09090b var(--tw-gradient-to-position) !important;
+}
+
+.via-white,
+.via-gray-50,
+.via-gray-100 {
+  --tw-gradient-via: #121215 var(--tw-gradient-via-position) !important;
+}
+
+/* Universal Borders */
+.border-gray-100,
+.border-gray-200,
+.border-gray-300,
+.border-slate-100,
+.border-slate-200,
+.border-slate-300,
+.border-zinc-100,
+.border-zinc-200 {
+  border-color: #27272a !important;
+}
+
+.border-blue-100, .border-blue-200, .border-blue-300,
+.border-indigo-100, .border-indigo-200, .border-indigo-300,
+.border-emerald-100, .border-emerald-200, .border-emerald-300,
+.border-purple-100, .border-purple-200, .border-purple-300 {
+  border-color: rgba(255, 102, 0, 0.3) !important;
+}
+
+/* Universal Typography */
+.text-gray-900,
+.text-gray-800,
+.text-slate-900,
+.text-slate-800,
+.text-zinc-900,
+.text-zinc-800 {
+  color: #ffffff !important;
+}
+
+.text-gray-700,
+.text-gray-600,
+.text-slate-700,
+.text-slate-600 {
+  color: #d4d4d8 !important;
+}
+
+.text-gray-500,
+.text-gray-400,
+.text-slate-500,
+.text-slate-400 {
+  color: #a1a1aa !important;
+}
+
+/* Universal Electric Orange Brand Highlights */
+.text-brand-500,
+.text-brand-600,
+.text-brand-700,
+.text-brand-800 {
+  color: #ff6600 !important;
+}
+
+.bg-brand-500,
+.bg-brand-600,
+.bg-brand-700,
+.bg-brand-800 {
+  background-color: #ff6600 !important;
+  color: #08080a !important;
+  font-weight: 700 !important;
+}
+
+.bg-brand-50,
+.bg-brand-100,
+.bg-brand-200 {
+  background-color: rgba(255, 102, 0, 0.15) !important;
+  color: #ff7a1a !important;
+  border-color: rgba(255, 102, 0, 0.35) !important;
+}
+
+.border-brand-200,
+.border-brand-300,
+.border-brand-400,
+.border-brand-500,
+.border-brand-600 {
+  border-color: #ff6600 !important;
+}
+
+/* Inputs, Selects, and Textareas everywhere */
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  background-color: #09090b !important;
+  color: #f4f4f5 !important;
+  border-color: #27272a !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #ff6600 !important;
+  box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.3) !important;
+  outline: none !important;
+}
+
+/* Interactive Hover States */
+.hover\:bg-gray-50:hover,
+.hover\:bg-gray-100:hover,
+.hover\:bg-slate-50:hover,
+.hover\:bg-slate-100:hover {
+  background-color: #1a1a20 !important;
+  color: #ffffff !important;
+}
+
+.hover\:text-gray-900:hover,
+.hover\:text-gray-800:hover {
+  color: #ff7a1a !important;
+}
+
+.hover\:border-brand-300:hover,
+.hover\:border-brand-500:hover {
+  border-color: #ff6600 !important;
+}
+
+/* Print optimization */
+@media print {
+  header, footer, nav, .no-print, [class*="bg-black/"], [class*="backdrop"] {
+    display: none !important;
+  }
+  body, #root, main {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+  .fixed.inset-0 {
+    position: static !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .fixed.inset-0 > div:last-child {
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  .print-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    break-inside: avoid;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+
