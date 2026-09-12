@@ -2,7 +2,14 @@ import fs from 'node:fs';
 import http from 'isomorphic-git/http/node';
 import git from 'isomorphic-git';
 
-const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || process.argv[2];
+// Read token from environment or ignored .env.local file
+let token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || process.argv[2];
+
+if (!token && fs.existsSync('.env.local')) {
+  const content = fs.readFileSync('.env.local', 'utf-8');
+  const match = content.match(/GITHUB_TOKEN=(.*)/);
+  if (match) token = match[1].trim();
+}
 
 async function push() {
   if (!token) {
